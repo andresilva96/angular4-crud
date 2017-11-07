@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../services/post.service";
 import {Router} from "@angular/router";
-
+import {Post} from "../model/Post";
 @Component({
   selector: 'app-post-save',
   templateUrl: './post-save.component.html',
   styleUrls: ['./post-save.component.css']
 })
 export class PostSaveComponent implements OnInit {
-  post = {
+  post: Post = {
     id: null,
     title: '',
     body: '',
