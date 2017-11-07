@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {PostService} from "../services/post.service";
 
 @Component({
   selector: 'app-post-list',
@@ -9,14 +9,10 @@ import {HttpClient} from "@angular/common/http";
 export class PostListComponent implements OnInit {
 
   posts: any = [];
-  baseUrl = 'https://jsonplaceholder.typicode.com/posts';
-  constructor(private http: HttpClient) { }
+  constructor(private post: PostService) { }
 
-  /*
-   Esse metodo eh o que inicia junto ao componente, entao e bom fazer chamada de servicos nela
-   */
+
   ngOnInit() {
-    this.http.get(this.baseUrl).subscribe(data => this.posts = data);
+    this.post.selectPost().subscribe(data => this.posts = data);
   }
-
 }

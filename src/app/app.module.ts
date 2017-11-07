@@ -6,6 +6,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {PostService} from "./services/post.service";
+import { PostSaveComponent } from './post-save/post-save.component';
 
 const appRoutes: Routes = [
     {path: '', pathMatch: 'full', component: PostListComponent},
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PostListComponent
+    PostListComponent,
+    PostSaveComponent
   ],
   imports: [
     BrowserModule,
