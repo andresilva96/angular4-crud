@@ -4,18 +4,24 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class PostService {
-    baseUrl = 'https://jsonplaceholder.typicode.com';
+    baseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
     constructor(private http: HttpClient) { }
 
-    /*
-    Esse metodo eh o que inicia junto ao componente, entao e bom fazer chamada de servicos nela
-   */
-    selectPost(): Observable<Array<any>> {
-        return this.http.get(`${this.baseUrl}/posts`);
+    find(id: number): Observable<any> {
+        return this.http.get(`${this.baseUrl}/${id}`);
     }
 
-    save(data: any): Observable<Array<any>> {
-        return this.http.post(`${this.baseUrl}/posts`, data);
+    selectPost(): Observable<Array<any>> {
+        return this.http.get(`${this.baseUrl}`);
+    }
+
+    /*
+     Se o id existir, insere se nao atualiza
+    */
+    save(data: any): Observable<any> {
+        return !data.id
+            ? this.http.post(this.baseUrl, data)
+            : this.http.put(`${this.baseUrl}/${data.id}`, data);
     }
 }
