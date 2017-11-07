@@ -14,4 +14,8 @@ export class PostService {
     selectPost(): Observable<Array<any>> {
         return this.http.get(`${this.baseUrl}/posts`);
     }
+
+    save(data: any): Observable<Array<any>> {
+        return this.http.post(`${this.baseUrl}/posts`, data);
+    }
 }

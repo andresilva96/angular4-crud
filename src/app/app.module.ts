@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {PostService} from "./services/post.service";
 import { PostSaveComponent } from './post-save/post-save.component';
 import { ButtonComponent } from './bootstrap/button/button.component';
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
     {path: '', pathMatch: 'full', component: PostListComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
       RouterModule.forRoot(appRoutes),
-      HttpClientModule
+      HttpClientModule,
+      FormsModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent]

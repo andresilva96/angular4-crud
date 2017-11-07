@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PostService} from "../services/post.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post-save',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-save.component.css']
 })
 export class PostSaveComponent implements OnInit {
+  post = {
+    id: null,
+    title: '',
+    body: '',
+  };
 
-  constructor() { }
+  constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  save() {
+    this.postService.save(this.post).subscribe(() => this.router.navigate(['/posts']));
   }
 
 }
