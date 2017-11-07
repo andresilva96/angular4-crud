@@ -15,7 +15,9 @@
       <td>{{post.id}}</td>
       <td>{{post.title}}</td>
       <td>{{post.body}}</td>
-      <td></td>
+      <td>
+        <a [routerLink]="['/posts/edit', post.id]" ngClass="btn btn-primary">Editar</a>
+      </td>
     </tr>
     </tbody>
   </table>
