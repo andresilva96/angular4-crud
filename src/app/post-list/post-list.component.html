@@ -1,5 +1,5 @@
+<h3>Listagem de posts</h3>
 <div class="row">
-  <h3>Listagem de posts</h3>
   <app-button color="success" routerLink="/posts/create">Criar</app-button>
   <table class="table table-striped">
     <thead>
@@ -16,7 +16,7 @@
       <td>{{post.title}}</td>
       <td>{{post.body}}</td>
       <td>
-        <a [routerLink]="['/posts/edit', post.id]" ngClass="btn btn-primary">Editar</a>
+        <a [routerLink]="['/posts/edit', post.id]" ngClass="btn btn-warning">Editar</a>
       </td>
     </tr>
     </tbody>
