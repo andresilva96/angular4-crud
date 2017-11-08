@@ -16,7 +16,8 @@
       <td>{{post.title}}</td>
       <td>{{post.body}}</td>
       <td>
-        <a [routerLink]="['/posts/edit', post.id]" ngClass="btn btn-warning">Editar</a>
+        <a href="javascript:void(0)" [routerLink]="['/posts/edit', post.id]" ngClass="btn btn-warning">Editar</a>
+        <a (click)="remove(post.id, i)" ngClass="btn btn-danger">Deletar</a>
       </td>
     </tr>
     </tbody>
