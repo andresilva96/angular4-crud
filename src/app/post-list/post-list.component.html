@@ -17,9 +17,25 @@
       <td>{{post.body}}</td>
       <td>
         <a href="javascript:void(0)" [routerLink]="['/posts/edit', post.id]" ngClass="btn btn-warning">Editar</a>
-        <a (click)="remove(post.id, i)" ngClass="btn btn-danger">Deletar</a>
+        <a (click)="openModal(post)" ngClass="btn btn-danger">Deletar</a>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
+
+<modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Mensagem de confirmação.</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf="postToDelete">
+    <p>Deseja excluir esse post <strong>{{ postToDelete.title }}</strong>?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="remove()">Deletar</button>
+  </div>
+</modal>
