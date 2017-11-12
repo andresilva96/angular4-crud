@@ -11,7 +11,7 @@ import {ModalComponent} from "../bootstrap/modal/modal.component";
 export class PostListComponent implements OnInit {
   posts: Array<Post> = [];
   postToDelete = null;
-
+  mensagem = null;
   @ViewChild(ModalComponent)
   modal: ModalComponent;
 

@@ -1,3 +1,13 @@
-<p>
-  alert works!
-</p>
+<!-- ngClass se o close for true, coloca aquelas classes -->
+<div [ngClass]="'alert alert-'+color"
+     ngClass="{'alert-dismissible fade show' : close}"
+     role="alert"
+     #divAlert>
+  <button *ngIf="close"
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"><span aria-hidden="true">&times;</span>
+  </button>
+  <ng-content></ng-content>
+</div>

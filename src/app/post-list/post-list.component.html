@@ -1,4 +1,7 @@
 <h3>Listagem de posts</h3>
+<div class="row" *ngIf="mensagem">
+  <alert [close]="true" [timeout]="4000">teste</alert>
+</div>
 <div class="row">
   <app-button color="success" routerLink="/posts/create">Criar</app-button>
   <table class="table table-striped">
