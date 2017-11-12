@@ -11,6 +11,7 @@ import { ButtonComponent } from './bootstrap/button/button.component';
 import {FormsModule} from "@angular/forms";
 import { ModalComponent } from './bootstrap/modal/modal.component';
 import { AlertComponent } from './bootstrap/alert/alert.component';
+import {AlertService} from "./services/alert.service";
 
 const appRoutes: Routes = [
     {path: '', pathMatch: 'full', component: PostListComponent},
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
       HttpClientModule,
       FormsModule
   ],
-  providers: [PostService],
+  providers: [PostService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {PostService} from "../services/post.service";
 import {Post} from "../model/Post";
 import {ModalComponent} from "../bootstrap/modal/modal.component";
+import {AlertService} from "../services/alert.service";
 
 @Component({
   selector: 'app-post-list',
@@ -15,7 +16,10 @@ export class PostListComponent implements OnInit {
   @ViewChild(ModalComponent)
   modal: ModalComponent;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+              private alertService: AlertService) {
+    this.mensagem = this.alertService.mensagem;
+  }
 
   ngOnInit() {
     this.postService.selectPost().subscribe(data => this.posts = data);
